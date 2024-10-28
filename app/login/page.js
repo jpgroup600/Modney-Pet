@@ -6,13 +6,15 @@ import { Input } from "@/components/ui/input";
 import { LoadingButton } from "@/components/loading_button";
 import { CloudCog } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/navigation';
 
 function Page() {
+    const [isLoading, setIsLoading] = useState(false);
     const [user_info, setUserInfo] = useState({
         user_id: '',
         password: ''
     });
-
+    
     const handleChange = (e,name) => {
         setUserInfo({...user_info,
             [name]: e.target.value
@@ -20,8 +22,9 @@ function Page() {
     };
 
     const handleLogin = async () => {
+        setIsLoading(true);
         try {
-            const response = await fetch('/api/check_user/', {
+            const response = await fetch('/api/check_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -37,6 +40,8 @@ function Page() {
             const data = await response.json();
             // Handle successful login, e.g., redirect or update state
             console.log('Login successful:', data);
+            setIsLoading(false);
+            router.push('/');
 
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -61,7 +66,7 @@ function Page() {
                                 {/* Centered loading button */}
                                 <Flex justify="center">
                                     
-                                    <Button onClick={handleLogin} className="w-full mt-8">Login</Button>
+                                    <LoadingButton onClick={handleLogin} isLoading={isLoading} className="w-full mt-8" />
                                 </Flex>
                             </Box>
                         </Flex>

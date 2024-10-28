@@ -7,8 +7,8 @@ export async function POST(req) {
   const { data, error } = await supabase
     .from('user')
     .select('*')
-    .eq('user_id', 'admin')
-    .eq('password', 'admin');
+    .eq('user_id', user_id)
+    .eq('password', password);
 
   if (error) {
     return new Response(JSON.stringify({ message: 'Invalid email or password', error: error.message }), {
