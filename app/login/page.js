@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 
 function Page() {
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
     const [user_info, setUserInfo] = useState({
         user_id: '',
         password: ''
@@ -39,9 +40,14 @@ function Page() {
 
             const data = await response.json();
             // Handle successful login, e.g., redirect or update state
-            console.log('Login successful:', data);
             setIsLoading(false);
-            router.push('/');
+            if (data.data === "success") {
+                router.push('/');
+            }
+
+            else {
+                alert("아이디 또는 비밀번호가 틀렸습니다.");
+            }
 
     } catch (error) {
         console.error('Error fetching data:', error);
