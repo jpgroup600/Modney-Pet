@@ -4,11 +4,12 @@ import { cookies } from 'next/headers';
 
 export async function POST(req) {
   const supabase = await createClient();
+  const { product_name, customer_info } = await req.json();
 
   const { data, error } = await supabase
   .from('product')
   .insert([
-    { product_name: 'Test', detail_info :'Test' },
+    { product_name: product_name, detail_info :customer_info },
   ])
   .select()
         

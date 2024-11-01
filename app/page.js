@@ -12,6 +12,7 @@ import Slider3 from '@/components/slider3'
 import Slider4 from '@/components/slider4'
 import Slide5 from '@/components/slide5'
 import Footer from '@/components/footer'
+import Serial from '@/components/serial'
 
 function page() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -51,6 +52,9 @@ function page() {
         <h3 className="text-5xl font-[500] text-center mt-10">라이프 스타일 리더 힐스테이트</h3>
         <p className="text-[1.2em] font-[500] text-center mt-8">힐스테이트는 라이프 스타일 리더입니다. 우리는 라이프 스타일을 중시하며, <br></br> 
         삶의 질을 높이기 위해 노력합니다.</p>
+
+
+        <Serial></Serial>
 
 
         

@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 
 function AdminSidebar() {
     const currentPath = usePathname();
-    console.log(currentPath)
 
     return (
         <div className="w-64 bg-white shadow-md">
