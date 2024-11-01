@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import logo from '@/public/logoo.png';
 import Link from 'next/link';
-import Loginicon from '@/public/loginicon.svg';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
