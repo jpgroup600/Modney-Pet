@@ -42,7 +42,7 @@ function Page() {
             // Handle successful login, e.g., redirect or update state
             setIsLoading(false);
             if (data.data === "success") {
-                router.push('/');
+                router.push('/login/admin/');
             }
 
             else {

@@ -26,6 +26,15 @@ export default function AdminProduct() {
   const [searchTerm, setSearchTerm] = React.useState("")
   const [sortOrder, setSortOrder] = React.useState("제목")
 
+  const fetchData = async () => {
+    const response = await fetch('/api/check_user/add_product',{
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    })
+    const data = await response.json();
+    console.log(data)
+  }
+
   const petData = [
     { id: 1, title: "국내선 항공기 감아지 탑승기준 안내", date: "2024.08.22" },
     { id: 2, title: "국내선 항공기 감아지 탑승기준 안내", date: "2024.08.22" },
@@ -52,7 +61,12 @@ export default function AdminProduct() {
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-xl font-semibold">애견정보</h2>
-                  <Button className="bg-yellow-400 text-white hover:bg-yellow-500">
+                  <Button onClick={()=>{
+                    fetch('/api/check_user/add_product',{
+                      method : 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                    })
+                  }}className="bg-yellow-400 text-white hover:bg-yellow-500">
                     + 새글등록
                   </Button>
                 </div>

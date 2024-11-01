@@ -21,6 +21,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import AdminSidebar from "@/components/custom/adminSidebar"
 import AdminHeader from "@/components/custom/adminHeader"
+import useAuth from "@/hooks/useAuth"
 
 export default function AdminPanel() {
   const [searchTerm, setSearchTerm] = React.useState("")

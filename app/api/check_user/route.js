@@ -32,12 +32,14 @@ export async function POST(req) {
   else {
     const token = jwt.sign({ user_id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
+
     // Set token in HTTP-only cookie
     cookies().set({
       name: 'userInfo',
       value: token,
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      user_id : user_id,
+      httpOnly: false,
+      secure: process.env.NODE_ENV === 'production', // Secure in production
       maxAge: 60 * 60, // 1 hour
       path: '/',
     });
