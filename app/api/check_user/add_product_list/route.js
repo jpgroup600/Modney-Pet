@@ -4,13 +4,14 @@ import { cookies } from 'next/headers';
 
 export async function POST(req) {
   const supabase = await createClient();
-  const { product_name, customer_info } = await req.json();
+  const { product_name,description,price,image_url } = await req.json();
+
+  const now = new Date();
+  const new_image_url = now.toISOString() + "_" + image_url;
 
   const { data, error } = await supabase
-  .from('product')
-  .insert([
-    { product_name: product_name, detail_info :customer_info },
-  ])
+  .from('product_list')
+  .insert([{product_name:product_name,description:description,price:price,image:new_image_url}])
   .select()
         
 
@@ -32,7 +33,7 @@ export async function POST(req) {
   
 
   else {
-    return new Response(JSON.stringify({ message: '서버 접속 성공', data : "success"}), {
+    return new Response(JSON.stringify({ message: '서버 접속 성공', data : "success",image_url:new_image_url}), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

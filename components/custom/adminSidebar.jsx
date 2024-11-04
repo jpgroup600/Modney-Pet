@@ -12,12 +12,12 @@ function AdminSidebar() {
             </div>
             <nav className="mt-4">
                 <a
-                    href="/login/admin"
+                    href="/login/admin/product_list"
                     className={`block py-2 px-4 text-sm font-medium ${
-                        currentPath === '/login/admin' ? 'text-yellow-600 bg-yellow-100' : 'text-gray-700 hover:bg-gray-100'
+                        currentPath === '/login/admin/product_list' ? 'text-yellow-600 bg-yellow-100' : 'text-gray-700 hover:bg-gray-100'
                     }`}
                 >
-                    애견정보
+                    상품 관리
                 </a>
                 <a
                     href="/login/admin/product"
@@ -25,7 +25,7 @@ function AdminSidebar() {
                         currentPath === '/login/admin/product' ? 'text-yellow-600 bg-yellow-100' : 'text-gray-700 hover:bg-gray-100'
                     }`}
                 >
-                    상품관리
+                    시리얼 관리
                 </a>
                 <a
                     href="#"
