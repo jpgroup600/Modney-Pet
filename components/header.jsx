@@ -43,7 +43,10 @@ function Header() {
                     scrollDirection === 'down' ? 'translate-y-[-100%] shadow-none border-none' : 'bg-white'
                 }`}
         >
+
+            
             <div className="flex items-center justify-center space-x-4">
+            
                 <Image src={logo} alt="Logo" width={250} height={250} />
                 <div className="flex items-center absolute right-8">
                     <Link href="/login" className='flex flex-col items-center mr-5'>
@@ -53,6 +56,10 @@ function Header() {
                         <div className={`absolute text-center -bottom-3 text-[0.8em] font-[600] ${scrollDirection === 'top' ? 'text-white' : 'text-black'}`}>
                             로그인
                         </div>
+                    </Link>
+
+                    <Link href="/main" className='flex flex-col items-center mr-5'>
+                        <div className='text-[1.2em] font-[600]'>메인 페이지</div>
                     </Link>
 
                     <button
