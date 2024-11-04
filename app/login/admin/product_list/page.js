@@ -7,6 +7,8 @@ import AdminSidebar from "@/components/custom/adminSidebar";
 import AdminHeader from "@/components/custom/adminHeader";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import axios from "axios";
 
 export default function AdminProduct() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,7 +21,7 @@ export default function AdminProduct() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('/api/check_user/fetch_product', {
+      const response = await fetch('/api/check_user/fetch_product_list', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -94,11 +96,23 @@ export default function AdminProduct() {
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-xl font-semibold">애견정보</h2>
+
+                  <div className="button-cont">
+                  <Button variant="contained" className="bg-yellow-400 mr-4 text-white hover:bg-yellow-500" onClick={() => {
+                    axios.post('/api/add_admin', {
+                      user_id : "admin",
+                      password : "admin"
+                    })
+                  }}>
+                    관리자 등록
+                  </Button>
+
                   <Button variant="contained" className="bg-yellow-400 text-white hover:bg-yellow-500" onClick={() => {
                     router.push('/login/admin/add_product_list')
                   }}>
                     + 새글등록
                   </Button>
+                  </div>
                 </div>
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex items-center space-x-2">
@@ -132,23 +146,24 @@ export default function AdminProduct() {
                       <TableRow>
                         <TableCell>No</TableCell>
                         <TableCell>상품명</TableCell>
-                        <TableCell>고객정보</TableCell>
+                        <TableCell>상세 설명</TableCell>
                         <TableCell>등록일</TableCell>
-                        <TableCell>시리얼번호</TableCell>
-                        <TableCell>색상</TableCell>
+                        <TableCell>가격</TableCell>
+                        <TableCell>부가설명</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       {filteredData.slice(currentPage * itemsPerPage, currentPage * itemsPerPage + itemsPerPage).map((pet, index) => (
                         <TableRow key={pet.id}>
                           <TableCell>{currentPage * itemsPerPage + index + 1}</TableCell>
-                          <TableCell>{pet.product_name}</TableCell>
-                          <TableCell>{pet.detail_info}</TableCell>
+                          <TableCell><Link 
+                          className="bg-black text-white px-8 py-2 rounded-sm hover:text-yellow-400 "
+                          href={`/login/admin/product_list/${pet.id}`}>{pet.product_name}</Link></TableCell>
+                          <TableCell>{pet.description}</TableCell>
                           <TableCell>{formatDate(pet.added_time)}</TableCell>
-                          <TableCell>{pet.serial_number}</TableCell>
-                          <TableCell>
-                            <div className="w-[20px] h-[20px] rounded-full" style={{ backgroundColor: `#${pet.serial_number}` }}></div>
-                          </TableCell>
+                          <TableCell>{pet.price}</TableCell>
+                          <TableCell>{pet.other}</TableCell>
+                          
                         </TableRow>
                       ))}
                     </TableBody>

@@ -1,16 +1,27 @@
 import { createClient } from '@/utils/supabase/server';
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
+import bcrypt from 'bcrypt';
 
 export async function POST(req) {
   const supabase = await createClient();
   const { user_id, password } = await req.json();
 
+  let hashed_password;
+  hashed_password = password;
+  hashed_password = await bcrypt.hash(hashed_password, 10);
+
+
   const { data, error } = await supabase
     .from('user')
     .select('*')
     .eq('user_id', user_id)
-    .eq('password', password);
+    
+
+    // const isPasswordValid = await bcrypt.compare(hashed_password, data.password);
+    console.log(hashed_password)
+    console.log(data)
+      
 
   if (error) {
     return new Response(JSON.stringify({ message: 'Invalid email or password', error: error.message }), {
@@ -19,7 +30,7 @@ export async function POST(req) {
     });
   }
 
-  if (data.length === 0) {
+  if (!data) {
     return new Response(JSON.stringify({ message: 'Invalid email or password' , data : "failed "}), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
@@ -36,6 +47,7 @@ export async function POST(req) {
     // Set token in HTTP-only cookie
     cookies().set({
       name: 'userInfo',
+      userRole : data.role,
       value: token,
       user_id : user_id,
       httpOnly: false,

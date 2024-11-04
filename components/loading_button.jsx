@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function LoadingButton({ isLoading, className, link, onClick }) {
+export function LoadingButton({ isLoading, className, link, onClick, buttonText }) {
   return (
     isLoading ? (
       <Button className={className} disabled>
@@ -11,7 +11,7 @@ export function LoadingButton({ isLoading, className, link, onClick }) {
       </Button>
     ) : (
       <Button className={className} onClick={onClick}>
-        Button
+        {buttonText? buttonText : "SetButton Text"}
       </Button>
     )
   );

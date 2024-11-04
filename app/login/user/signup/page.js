@@ -1,20 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Box, Card, Flex } from '@radix-ui/themes';
 import { Input } from "@/components/ui/input";
 import { LoadingButton } from "@/components/loading_button";
 import { CloudCog } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useRouter } from 'next/navigation';
+import { getCookie } from '@/hooks/setCookie';
 
 function Page() {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const [user_info, setUserInfo] = useState({
         user_id: '',
-        password: ''
+        password: '',
+        user_serial: ''
     });
+
+    useEffect(() => {
+        const user_serial = getCookie('user_serial');
+        if (user_serial) {
+            setUserInfo({...user_info, user_serial: user_serial});
+        }
+    }, [user_info.user_serial]);
     
     const handleChange = (e,name) => {
         setUserInfo({...user_info,
@@ -25,7 +34,7 @@ function Page() {
     const handleLogin = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch('/api/check_user', {
+            const response = await fetch('/api/add_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -42,20 +51,12 @@ function Page() {
             // Handle successful login, e.g., redirect or update state
             setIsLoading(false);
             if (data.data === "success") {
-                console.log("data.userRole",data.user[0].role);
-                if (data.user[0].role === "admin") {
-
-                    router.push('/login/admin/');
-                }
-                else {
-                    router.push('/login/user/');
-                }
-
+                alert("회원가입이 완료되었습니다.");
+                router.push('/login/user/');
                 return;
             }
-
             else {
-                alert("아이디 또는 비밀번호가 틀렸습니다.");
+                alert(data.message);
             }
 
     } catch (error) {
@@ -75,13 +76,21 @@ function Page() {
                     <Card>
                         <Flex direction="column" gap="4" align="center">
                             <Box className="w-full">
+                                <h2 className="text-2xl mb-20 font-bold text-center mt-20 text-[#961E1E]">회원가입</h2>
                                 {/* Larger input fields */}
-                                <Input onChange={(e) => handleChange(e, 'user_id')} className="mb-4 w-full h-12 text-lg p-4" placeholder="Email" type="text" />
-                                <Input onChange={(e) => handleChange(e, 'password')} className="mb-4 w-full h-12 text-lg p-4" placeholder="Password" type="password" />
+                                <label className="text-lg font-bold">시리얼 번호</label>
+                                <Input onChange={(e) => handleChange(e, 'user_id')} className="mb-4 w-full h-12 text-lg p-4"  value={user_info.user_serial} type="text" disabled />
+                                <label className="text-lg font-bold mt-4">아이디</label>
+                                <Input onChange={(e) => handleChange(e, 'user_id')} className="mb-4 w-full h-12 text-lg p-4" placeholder="아이디" type="text">
+                                    
+                                </Input>
+                                
+                                <label className="text-lg font-bold mt-4">비밀번호</label>
+                                <Input onChange={(e) => handleChange(e, 'password')} className="mb-4 w-full h-12 text-lg p-4" placeholder="비밀번호" type="password" />
                                 {/* Centered loading button */}
                                 <Flex justify="center">
                                     
-                                    <LoadingButton onClick={handleLogin} isLoading={isLoading} className="w-full mt-8" />
+                                    <LoadingButton buttonText="회원가입" onClick={handleLogin} isLoading={isLoading} className="w-full mt-8" />
                                 </Flex>
                             </Box>
                         </Flex>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { setCookie } from './setCookie';
 
 const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState({});
@@ -26,7 +27,9 @@ const useAuth = () => {
       .then(data => {
         if (data.valid) {
           
-          setIsAuthenticated({valid : true, decoded : data.decoded.user_id});
+          setIsAuthenticated({valid : true, decoded : data.decoded.user_id,data:data.decoded});
+          setCookie("user_serial",data.decoded.serial,30);
+
         } else {
           console.log('Token is invalid');
           router.push('/login');
