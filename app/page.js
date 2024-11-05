@@ -27,7 +27,7 @@ import Register from '@/components/register'
 
 function page() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
     // const user_serial = getCookie('user_serial');
