@@ -17,9 +17,17 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { getCookie } from '@/hooks/setCookie'
 
+import png1 from '@/public/main/1.png'
+import png2 from '@/public/main/2.png'
+import png3 from '@/public/main/3.png'
+import png4 from '@/public/main/4.png'
+import png2_1 from '@/public/main/2-1.png'
+
+import Register from '@/components/register'
+
 function page() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {
     // const user_serial = getCookie('user_serial');
@@ -39,15 +47,8 @@ function page() {
         <SliderComponent></SliderComponent>
       </section>
 
-      <section className="flex flex-col items-center h-[100vh]" style={{backgroundColor: `#FFC800`}}>
-        <h2 className="text-2xl font-bold text-center mt-20">Brand Philosophy</h2>
-        <h3 className="text-5xl font-[500] text-center mt-10">라이프 스타일 리더 힐스테이트</h3>
-        <p className="text-[1.2em] font-[500] text-center mt-8">힐스테이트는 라이프 스타일 리더입니다. 우리는 라이프 스타일을 중시하며, <br></br> 
-        삶의 질을 높이기 위해 노력합니다.</p>
-
-        <div className="w-[80%] h-[50%]">
-        <Image src={bg} alt="background" className="text-show-image w-full h-full object-cover mt-10" />
-        </div>
+      <section className="flex flex-col items-center h-[100vh]" >
+       <Image src={png1} alt="background" className="text-show-image w-[80%] h-[80%] object-cover mt-10" />
       </section>
 
       <section >
@@ -55,31 +56,22 @@ function page() {
 
       </section>
 
-      <section >
-        <Slider3></Slider3>
-
-      </section>
-
-      <section>
-        <div className='h-[100vh] w-full bg-white flex flex-col items-center justify-center'>
-        <h2 className="text-2xl font-bold text-center mt-20 text-[#961E1E]">Brand Philosophy</h2>
-        <h3 className="text-5xl font-[500] text-center mt-10">라이프 스타일 리더 힐스테이트</h3>
-        <p className="text-[1.2em] font-[500] text-center mt-8">힐스테이트는 라이프 스타일 리더입니다. 우리는 라이프 스타일을 중시하며, <br></br> 
-        삶의 질을 높이기 위해 노력합니다.</p>
-        
-
-        </div>
-
-        <div className='m-auto w-[80vw]'>
+      <section className='flex flex-col items-center h-[100vh] mt-20'>
+      <div className='m-auto w-[80vw]'>
         <Slider4></Slider4>
         </div>
-        
-        
+
+      </section>
+
+      <section className='flex flex-col items-center h-full w-full mt-20'>
+        <Image src={png2_1} alt="background" className="text-show-image w-[80%] h-[80%] object-cover mt-10" />
+      <Image src={png3} alt="background" className="text-show-image object-cover mt-10" />
+   
         
       </section>
 
-      <section>
-        <Slide5></Slide5>
+      <section className='flex flex-col items-center h-full w-full mt-20'>
+        <Image src={png4} alt="background" className="text-show-image w-full h-full object-cover mt-10" />
       </section>
 
       <section className='h-[100vh] w-full bg-white flex flex-col items-center justify-center'>
@@ -87,11 +79,11 @@ function page() {
         <h3 className="text-5xl font-[500] text-center mt-10">라이프 스타일 리더 힐스테이트</h3>
         <p className="text-[1.2em] font-[500] text-center mt-8">힐스테이트는 라이프 스타일 리더입니다. 우리는 라이프 스타일을 중시하며, <br></br> 
         삶의 질을 높이기 위해 노력합니다.</p>
-        <Link 
-        className='mt-10 px-20'
-        href="/login/user/signup">
-          <Button>멤버로 가입하기</Button>
-        </Link>
+        
+
+      <Register></Register>
+
+
       </section>
 
       
