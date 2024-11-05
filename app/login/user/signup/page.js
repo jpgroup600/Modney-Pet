@@ -8,6 +8,7 @@ import { CloudCog } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useRouter } from 'next/navigation';
 import { getCookie } from '@/hooks/setCookie';
+import changeSerialCode from '@/hooks/changeSerial';
 
 function Page() {
     const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +20,10 @@ function Page() {
     });
 
     useEffect(() => {
-        const user_serial = getCookie('user_serial');
+        let user_serial = getCookie('user_serial');
+        const result = changeSerialCode(user_serial);
+        user_serial = result.apartment + " " + result.building + " " + result.unit;
+
         if (user_serial) {
             setUserInfo({...user_info, user_serial: user_serial});
         }
@@ -78,7 +82,7 @@ function Page() {
                             <Box className="w-full">
                                 <h2 className="text-2xl mb-20 font-bold text-center mt-20 text-[#961E1E]">회원가입</h2>
                                 {/* Larger input fields */}
-                                <label className="text-lg font-bold">시리얼 번호</label>
+                                <label className="text-lg font-bold">회원 주소</label>
                                 <Input onChange={(e) => handleChange(e, 'user_id')} className="mb-4 w-full h-12 text-lg p-4"  value={user_info.user_serial} type="text" disabled />
                                 <label className="text-lg font-bold mt-4">아이디</label>
                                 <Input onChange={(e) => handleChange(e, 'user_id')} className="mb-4 w-full h-12 text-lg p-4" placeholder="아이디" type="text">
