@@ -1,11 +1,23 @@
-import React from 'react';
-import changeSerialCode from '@/hooks/changeSerial'
-function IpJu({serial}) {
+'use client'
+import React, {useState, useEffect} from 'react';
 
-    if(serial){
-        serial = changeSerialCode(serial);
-        
-    }
+import changeSerialCode from '@/hooks/changeSerial'
+import { getCookie } from '@/hooks/setCookie'
+
+function IpJu() {
+
+    const [serial, setSerial] = useState("");
+    useEffect(()=>{
+        const getserial = getCookie('user_serial');
+        setSerial(getserial);
+
+        if(getserial){
+            let changedSerial = changeSerialCode(getserial);
+            setSerial(changedSerial);
+        }
+
+    },[])
+    
   return (
     <div
       className="w-full h-[100vh] flex justify-center items-start"
