@@ -22,6 +22,7 @@ function Register() {
     useEffect(() => {
         let user_serial = getCookie('user_serial');
         const result = changeSerialCode(user_serial);
+        console.log("result",result);
         user_serial = result.apartment + " " + result.building + " " + result.unit;
 
         if (user_serial) {
