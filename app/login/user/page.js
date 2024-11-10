@@ -8,8 +8,6 @@ import changeSerialCode from "@/hooks/changeSerial"
 
 function page() {
   
-  
-
   return (
     <div>
       <IpJu></IpJu>
