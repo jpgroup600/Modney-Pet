@@ -29,7 +29,7 @@ function Footer2() {
           </div>
           
         </div>
-        <div className="flex flex-col container mx-auto gap-6 2xl:px-48 px-0">
+        <div className="flex flex-col container mx-auto gap-6 px-0">
           <div className="bg-white h-px"></div>
           <div className="flex gap-8 text-[0.8rem]">
             <a className="pl-4 border-l-4" href="#">개인정보처리방침</a>
