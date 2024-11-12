@@ -18,3 +18,8 @@
     color: #666; /* Adjust color as needed */
     pointer-events: none; /* Prevent interaction with the unit */
   }
+
+/* change input placeholder text size */
+input::placeholder {
+    font-size: 0.875rem; /* Adjust font size as needed */
+}

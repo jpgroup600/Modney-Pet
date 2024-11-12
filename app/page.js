@@ -4,14 +4,14 @@ import React from 'react'
 import Image from 'next/image'
 import bg from '@/public/background.png'
 import slide1 from '@/public/png2.png'
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import SliderComponent from '@/components/slider'
 import Slider2 from '@/components/slider2'
 import Header from '@/components/header'
 import Slider3 from '@/components/slider3'
 import Slider4 from '@/components/slider4'
 import Slide5 from '@/components/slide5'
-import Footer from '@/components/footer'
+import Footer2 from '@/components/Footer2'
 import Serial from '@/components/serial'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -33,34 +33,37 @@ function page() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isValid, setIsValid] = useState(false);
 
-  useEffect(() => {
-    const user_serial = getCookie('user_serial');
-    if (user_serial) {
-      setIsValid(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const user_serial = getCookie('user_serial');
+  //   if (user_serial) {
+  //     setIsValid(true);
+  //   }
+  // }, []);
 
-  console.log("isValid",isValid);
+  console.log("isValid", isValid);
   return (
     <>
-    
-    {isValid? (
-    <>
-    <Header></Header>
-    <ProdDetail></ProdDetail>
-    </>
-  ): (
-    <>
-<Login setIsValid={setIsValid} ></Login>
 
-   
+      {isValid ? (
+        <>
+          <Header></Header>
+          <ProdDetail></ProdDetail>
+        </>
+      ) : (
+        <>
+          <Login setIsValid={setIsValid} ></Login>
+          <section className='h-[100vh] flex items-center justify-center'>
+            <Image src={'/dog2.png'} alt='bg' width={500} height={500} ></Image>
+          </section>
+
+
+        </>
+      )
+      }
+      <Footer2></Footer2>
     </>
   )
-  }
-  <Footer></Footer>
-  </>
-  )
-  
+
 }
 
 export default page

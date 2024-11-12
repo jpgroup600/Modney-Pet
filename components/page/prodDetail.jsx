@@ -2,19 +2,23 @@ import React from 'react'
 import Housebag from './housebag'
 import Housebag2 from './housebag2'
 import Register2 from './register2'
+import Image from 'next/image'
 import HouseBagComp from '@/components/HouseBag'
+import "@fontsource/noto-sans-kr"; 
+import "@/app/globals.css"
+
 function ProdDetail() {
     return (
         <>
             <section className="container mx-auto h-[100vh] w-full py-40">
                 <div
-                    className="w-full h-full flex flex-col justify-center items-center relative"
+                    className="w-full h-full flex flex-col justify-center items-center relative border-[3px] border-[#000]"
                     style={{ backgroundImage: `url('/hero-section.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                 >
                     <div className='absolute inset-0 bg-black opacity-50'></div>
                     <div className='z-10'>
-                        <h1 className="text-5xl font-bold text-white text-center mb-10">모드니∩펫 분양가이드</h1>
-                        <div className="flex flex-col gap-7 text-xl text-white text-center">
+                        <h1 className="text-4xl font-bold text-white text-center mb-10" style={{fontFamily: "Noto Sans KR"}}>모드니∩펫 분양가이드</h1>
+                        <div className="flex flex-col gap-7 text-[1rem] text-white text-center">
                             <p>안녕하세요.</p>
                             <p>
                                 하우스백 시리즈를 구입해주셔서<br />
@@ -29,13 +33,14 @@ function ProdDetail() {
                     </div>
                 </div>
             </section>
+            <hr className="bg-black border-none h-1"></hr>
 
             <section className="bg-[#FDF8F1]">
                 <section className="container mx-auto gap-11 relative flex flex-col py-40 items-center justify-center">
                     <div className="text-3xl font-bold text-center ">
                         고민의 결과
                         <div className='mb-3'></div>
-                        <h2 className="text-[1.3em] font-[900] text-center">
+                        <h2 className="text-[2.5rem] font-[900] text-center">
                             하우스백 시리즈
                         </h2>
                     </div>
@@ -68,30 +73,53 @@ function ProdDetail() {
 
             </section>
 
-            <hr className="bg-black border-none h-1" />
-            <section className="h-[95vh] relative flex flex-col items-center" style={{backgroundImage: 'url(/n.svg)', backgroundSize: '30%', backgroundPosition: 'center center' , backgroundRepeat: 'no-repeat' }}>
+            <hr className="bg-black border-none h-[3px]" />
+            <section className="h-[100vh] relative flex flex-col items-center justify-center">
                 
-                <h3 className="text-5xl font-bold text-center mt-16">
+                <h3 className="text-[2.5rem] font-[900] text-center mt-16">
                     하우스오너가 되어주세요.
                 </h3>
                 <p className="text-2xl text-center mt-6">펫의 보호자</p>
+                <div className='relative'>
+                <Image src="/n.svg" alt="n" width={400} height={400}></Image>
                 <p className='absolute bottom-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>모드니펫은 펫 주거환경 개선을 위해 노력하는 브랜드입니다.</p>
+                </div>
+
+               
                 
             </section>
-            <hr className="bg-black border-none h-1" />
+            <hr className="bg-black border-none h-[3px]" />
 
 
         <section>
             <Housebag></Housebag>
+            <hr className="bg-black border-none h-[3px]" />
         </section>
 
         <section>
             <Housebag2></Housebag2>
+            <hr className="bg-black border-none h-[3px]" />
+        </section>
+
+        <section>
+            <div className='w-full h-[70vh] flex flex-col items-center justify-center gap-14'>
+            <h3 className='text-[2.5rem] font-[900] text-center mb-[-1rem]'>하우스백 사용방법</h3>
+            <div className='text-center text-[1.8rem]'>
+                <div>하우스백 사용으로 집의 다양한 공간과 기능을 제어하여</div>
+                <div>편리하고 안전한 생활이 가능합니다.</div>
+            </div>
+            <div className='text-[1.3rem] font-[900] text-center border-[3px] border-[#000] bg-[#FFC800] py-3 px-10'>하우스백 사용방법 PDF</div>
+
+            </div>
+            <hr className="bg-black border-none h-[3px]" />
         </section>
 
         <section>
             <Register2></Register2>
+            <hr className="bg-black border-none h-[3px]" />
         </section>
+
+        
 
 
 

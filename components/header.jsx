@@ -37,10 +37,11 @@ function Header() {
     }, [lastScrollY]);
 
     return (
+        <>
         <div
-            className={`flex items-center border-b fixed w-full shadow-sm p-8 transition-all z-50 duration-700 ease-in-out 
-                ${scrollDirection === 'top' ? 'bg-transparent shadow-none border-none' :
-                    scrollDirection === 'down' ? 'translate-y-[-100%] shadow-none border-none' : 'bg-white'
+            className={`flex items-center border-b-[3px] border-[#000] fixed w-full p-8 transition-all z-50 duration-700 ease-in-out 
+                ${scrollDirection === 'top' ? 'bg-transparent shadow-none' :
+                    scrollDirection === 'down' ? 'translate-y-[-100%] shadow-none' : 'bg-white'
                 }`}
         >
 
@@ -51,6 +52,8 @@ function Header() {
                 
             </div>
         </div>
+        
+        </>
     );
 }
 

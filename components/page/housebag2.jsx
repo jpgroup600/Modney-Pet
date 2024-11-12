@@ -69,8 +69,8 @@ function Housebag2() {
     <>
       <div className="bg-[#F8F8F8]">
         <section className="container mx-auto relative gap-11 flex flex-col items-center py-40">
-          <h1 className="text-5xl font-bold text-center">하우스백 입주절차안내</h1>
-          <div className="flex flex-col w-[80%]">
+          <h1 className="text-[2.5rem] font-bold text-center">하우스백 입주절차안내</h1>
+          <div className="flex flex-col w-[75%]">
             <Waring2></Waring2>
             <Waring2></Waring2>
             <Waring2></Waring2>
