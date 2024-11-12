@@ -43,14 +43,16 @@ function page() {
   console.log("isValid",isValid);
   return (
     <>
-    <Header></Header>
+    
     {isValid? (
     <>
+    <Header></Header>
     <ProdDetail></ProdDetail>
     </>
   ): (
     <>
 <Login setIsValid={setIsValid} ></Login>
+
    
     </>
   )

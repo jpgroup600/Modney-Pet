@@ -2,7 +2,7 @@ import React from 'react'
 import Housebag from './housebag'
 import Housebag2 from './housebag2'
 import Register2 from './register2'
-
+import HouseBagComp from '@/components/HouseBag'
 function ProdDetail() {
     return (
         <>
@@ -31,60 +31,29 @@ function ProdDetail() {
             </section>
 
             <section className="bg-[#FDF8F1]">
-                <section className="container mx-auto gap-11 relative flex flex-col py-40">
-                    <h1 className="text-4.5xl font-bold text-center">
-                        고민의 결과<br />
-                        하우스백 시리즈
-                    </h1>
-                    <div className="flex lg:gap-8 2xl:gap-12 lg:px-9 2xl:px-0 relative items-center justify-center">
-                        <div className="flex flex-col shadow-xl rounded-[20px] overflow-hidden">
-                            <img className="h-[320px] w-[395px] object-cover" src="/placeholder/dog.png" alt="card-img" />
-                            <div className="bg-white p-7 flex flex-col gap-5">
-                                <h3 className="text-2.5xl font-bold">모드니∩펫 BASEBAG</h3>
-                                <div className="text-[#676767] text-xl">
-                                    <div className="flex gap-4">
-                                        <p>사이즈</p>
-                                        <p>38 / 40 / 42 / 44</p>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <p>색상</p>
-                                        <p>BLACK / WHITE</p>
-                                    </div>
-                                </div>
-                            </div>
+                <section className="container mx-auto gap-11 relative flex flex-col py-40 items-center justify-center">
+                    <div className="text-3xl font-bold text-center ">
+                        고민의 결과
+                        <div className='mb-3'></div>
+                        <h2 className="text-[1.3em] font-[900] text-center">
+                            하우스백 시리즈
+                        </h2>
+                    </div>
+                    
+                   
+                    <div className="flex lg:gap-8 2xl:gap-12 lg:px-9 2xl:px-0 relative items-center justify-center w-[80%] h-[80%]">
+                        <div className='relative w-full h-full'>
+                        <HouseBagComp></HouseBagComp>
                         </div>
-                        <div className="flex flex-col shadow-xl rounded-[20px] overflow-hidden">
-                            <img className="h-[320px] w-[395px] object-cover" src="/placeholder/dog.png" alt="card-img" />
-                            <div className="bg-white p-7 flex flex-col gap-5">
-                                <h3 className="text-2.5xl font-bold">모드니∩펫 BASEBAG</h3>
-                                <div className="text-[#676767] text-xl">
-                                    <div className="flex gap-4">
-                                        <p>사이즈</p>
-                                        <p>38 / 40 / 42 / 44</p>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <p>색상</p>
-                                        <p>BLACK / WHITE</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className='relative w-full h-full'>
+                        <HouseBagComp></HouseBagComp>
                         </div>
-                        <div className="flex flex-col shadow-xl rounded-[20px] overflow-hidden">
-                            <img className="h-[320px] w-[395px] object-cover" src="/placeholder/dog.png" alt="card-img" />
-                            <div className="bg-white p-7 flex flex-col gap-5">
-                                <h3 className="text-2.5xl font-bold">모드니∩펫 BASEBAG</h3>
-                                <div className="text-[#676767] text-xl">
-                                    <div className="flex gap-4">
-                                        <p>사이즈</p>
-                                        <p>38 / 40 / 42 / 44</p>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <p>색상</p>
-                                        <p>BLACK / WHITE</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className='relative w-full h-full'>
+                        <HouseBagComp></HouseBagComp>
                         </div>
+
+                        
+                        
                         {/* Control */}
                         <button className="absolute left-0 -translate-y-1/2 top-1/2">
                             <img src="/arrow.svg" alt="icon" />
@@ -99,26 +68,17 @@ function ProdDetail() {
 
             </section>
 
-            <section>
-                <hr className="bg-black border-none h-1" />
-                <h1 className="text-5xl font-bold text-center mt-40">
+            <hr className="bg-black border-none h-1" />
+            <section className="h-[95vh] relative flex flex-col items-center" style={{backgroundImage: 'url(/n.svg)', backgroundSize: '30%', backgroundPosition: 'center center' , backgroundRepeat: 'no-repeat' }}>
+                
+                <h3 className="text-5xl font-bold text-center mt-16">
                     하우스오너가 되어주세요.
-                </h1>
-                <p className="text-xl text-center mt-6 mb-[-3em]">펫의 보호자</p>
-                <section className="container items-center justify-center mx-auto relative flex min-h-screen">
-
-                    <img className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src="n.svg" alt-="watermark" />
-                    <div className="flex flex-col gap-36">
-                        <div className="flex flex-col relative z-10">
-
-                        </div>
-                        <div className="flex flex-col relative z-10 items-center justify-center text-center text-3xl">
-
-                        </div>
-                    </div>
-                </section>
-                <hr className="bg-black border-none h-1" />
+                </h3>
+                <p className="text-2xl text-center mt-6">펫의 보호자</p>
+                <p className='absolute bottom-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>모드니펫은 펫 주거환경 개선을 위해 노력하는 브랜드입니다.</p>
+                
             </section>
+            <hr className="bg-black border-none h-1" />
 
 
         <section>
