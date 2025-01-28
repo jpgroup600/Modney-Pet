@@ -27,7 +27,7 @@ import png2_1 from '@/public/main/2-1.png'
 import Register from '@/components/register'
 import Login from '@/components/page/Login'
 import IpJu from '@/components/page/IpJu'
-
+import MainPost from '@/components/mainPost'
 
 function page() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -52,8 +52,8 @@ function page() {
       ) : (
         <>
           <Login setIsValid={setIsValid} ></Login>
-          <section className='h-[100vh] flex items-center justify-center'>
-            <Image src={'/dog2.png'} alt='bg' width={500} height={500} ></Image>
+          <section className='flex items-center justify-center'>
+            <MainPost></MainPost>
           </section>
 
 
