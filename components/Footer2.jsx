@@ -1,47 +1,76 @@
-import React from 'react'
+import Link from "next/link"
+import { MessageCircle, ImageIcon } from "lucide-react"
 
-function Footer2() {
+export default function Footer2() {
   return (
-    <>
-    <footer className="bg-black w-full text-white py-16 h-[50vh] flex flex-col justify-center">
-        <div className='w-[70%] mx-auto'>
-        <div className="container mx-auto px-0 flex justify-between">
-          <div className="flex flex-col">
-            <h2 className="text-[1.5rem] font-bold mb-4">모드니펫</h2>
-            <div className="flex flex-col gap-1 text-[white] text-[0.8rem]" style={{fontFamily: 'Noto Sans KR', letterSpacing: '0.15rem'}}>
-              <p>
-                대표 000  |  사업자번호 000-00-00000  |  Tel 00-000-0000  |
-                통신판매번호 0000-0000-0000  |  사업자번호조회
-              </p>
-              <p>
-                E-mail 00-000-0000  |  고객센터 0000-0000  |  서울 00구 000길 00.
-                123호 (00동,건물이름 1차)
-              </p>
-              <p>Copyright(c) All right Reserved.</p>
-            </div>
-            <div className="flex gap-7 my-7">
-              <div className="h-8 w-8 bg-[#DADCE0] rounded-full"></div>
-              <div className="h-8 w-8 bg-[#DADCE0] rounded-full"></div>
-              <div className="h-8 w-8 bg-[#DADCE0] rounded-full"></div>
-              <div className="h-8 w-8 bg-[#DADCE0] rounded-full"></div>
-              <div className="h-8 w-8 bg-[#DADCE0] rounded-full"></div>
-            </div>
-          </div>
-          
+    <footer className="bg-black text-white px-4 py-8 md:py-12">
+      <div className="max-w-6xl mx-auto">
+        {/* Company Name */}
+        <h2 className="text-2xl font-bold mb-4">모드니펫 MODNEYPET</h2>
+
+        {/* Contact Info */}
+        <div className="space-y-2 text-sm text-gray-300 mb-6">
+          <p className="md:flex md:items-center md:gap-4">
+            <span>대표 이다영</span>
+            <span className="hidden md:inline">|</span>
+            <span>사업자번호 343-13-00886</span>
+            <span className="hidden md:inline">|</span>
+            <span>대표전화 010-9942-8601</span>
+            <span className="hidden md:inline">|</span>
+            <span>이메일 manduuu_@naver.com</span>
+          </p>
+          <p className="break-words">통신판매번호 2022-경기부천-2782 [사업자정보확인]</p>
+          <p className="break-words">14786 경기도 부천시 양지로 237 (옥길동) 광장프런티어벤처5차지식산업센터 930호</p>
         </div>
-        <div className="flex flex-col container mx-auto gap-6 px-0">
-          <div className="bg-white h-px"></div>
-          <div className="flex gap-8 text-[0.8rem]">
-            <a className="pl-4 border-l-4" href="#">개인정보처리방침</a>
-            <a className="pl-4 border-l-4" href="#">이용약관</a>
-            <a className="pl-4 border-l-4" href="#">품질오류신고</a>
-            <a className="pl-4 border-l-4" href="#">품질오류신고확인 </a>
-          </div>
+
+        {/* Social Icons */}
+        <div className="flex flex-wrap gap-4 mb-6">
+          <Link href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <span className="text-black font-bold">N</span>
+          </Link>
+          <Link href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <MessageCircle className="w-5 h-5 text-black" />
+          </Link>
+          <Link href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <ImageIcon className="w-5 h-5 text-black" />
+          </Link>
+          <Link href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <span className="text-black font-bold">@</span>
+          </Link>
+          <Link href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <span className="text-black font-bold">n</span>
+          </Link>
+          <Link href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <span className="text-black font-bold">○</span>
+          </Link>
+          <Link href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <span className="text-black font-bold">●</span>
+          </Link>
         </div>
+
+        {/* Copyright */}
+        <p className="text-sm text-gray-400 mb-6">Copyright(c) All right Reserved.</p>
+
+        {/* Bottom Links */}
+        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-300">
+          <Link href="#" className="hover:text-white">
+            개인정보처리방침
+          </Link>
+          <span className="hidden md:inline">|</span>
+          <Link href="#" className="hover:text-white">
+            이용약관
+          </Link>
+          <span className="hidden md:inline">|</span>
+          <Link href="#" className="hover:text-white">
+            품질보증신고
+          </Link>
+          <span className="hidden md:inline">|</span>
+          <Link href="#" className="hover:text-white">
+            품질보증신고확인
+          </Link>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   )
 }
 
-export default Footer2

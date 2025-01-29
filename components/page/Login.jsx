@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import Serial from '../serial';
 import logo2 from '@/public/logo2.png'
 import { Check, Circle } from "lucide-react"
+import Image from 'next/image'
 import './Login.css'
 
 function Login({ setIsValid }) {
@@ -64,12 +65,19 @@ function Login({ setIsValid }) {
 
   return (
     <div>
-      
+
       <main
         className="h-svh gap-28 flex-col bg-cover bg-center bg-[url('/bg-login.jpg')] w-full flex items-center justify-center"
       >
         <div className="flex flex-col items-center justify-center">
-          <img src={logo2.src} alt="logo" />
+          <div className='relative image-container w-[80vw] h-[200px]'>  {/* or any specific height you want */}
+            <Image
+              src={logo2.src}
+              alt="logo"
+              fill
+              className="object-contain"  // or object-cover depending on your needs
+            />
+          </div>
           <Button
             onMouseEnter={() => {
               setIsHovered(true);
@@ -77,7 +85,10 @@ function Login({ setIsValid }) {
             onMouseLeave={() => {
               setIsHovered(false);
             }}
-            className={`bg-[#FAC600] rounded-full font-bold text-3xl py-8 mt-10 w-fit px-16 ${isHovered ? 'text-white' : 'text-black'}`}
+            className={`bg-[#FAC600] rounded-full font-bold text-2xl py-8 mt-10 w-fit px-12 ${isHovered ? 'text-white' : 'text-black'}
+            lg:w-fit lg:px-16 lg:py-8 lg:text-3xl lg:font-bold lg:rounded-full lg:mt-10
+            
+            `}
             onClick={() => {
               setIsClicked(!isClicked);
             }}
@@ -90,7 +101,10 @@ function Login({ setIsValid }) {
             </div>
           )}
         </div>
-        <div className="flex flex-col w-[426px] gap-7">
+        <div className="id-pw-container flex flex-col  gap-7
+        w-[90%]
+        lg:w-[426px]
+        ">
           <div className="flex flex-col gap-3 w-full">
             <label className="text-lg font-bold text-[#BCBCBC]" htmlFor="아이디">
               아이디
@@ -98,11 +112,11 @@ function Login({ setIsValid }) {
             <div className="relative">
               <Input
                 placeholder="아이디를 입력하세요"
-              className="user-input pr-10 h-12 text-lg bg-transparent border-b-2 border-t-0 border-x-0 rounded-none focus-visible:ring-0 focus-visible:border-primary"
-              id="아이디"
-              type="text"
-              onChange={(e) => {
-                setUserInfo({ ...user_info, user_id: e.target.value });
+                className="user-input pr-10 h-12 text-lg bg-transparent border-b-2 border-t-0 border-x-0 rounded-none focus-visible:ring-0 focus-visible:border-primary"
+                id="아이디"
+                type="text"
+                onChange={(e) => {
+                  setUserInfo({ ...user_info, user_id: e.target.value });
                 }}
               />
               {user_info.user_id ? (
