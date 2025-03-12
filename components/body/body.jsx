@@ -9,12 +9,12 @@ import Image from "next/image";
 
 const vectorImages = [
 
-  "/vectorImages/vector1.png",
-  "/vectorImages/vector5.png",
-  "/vectorImages/vector4.png",
-  "/vectorImages/vector2.png",
-  "/vectorImages/vector.png",
-  "/vectorImages/vector3.png",
+  "/vectorImages/Vector1.png",
+  "/vectorImages/Vector5.png",
+  "/vectorImages/Vector4.png",
+  "/vectorImages/Vector2.png",
+  "/vectorImages/Vector.png",
+  "/vectorImages/Vector3.png",
 
 
 
