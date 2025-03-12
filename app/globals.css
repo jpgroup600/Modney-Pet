@@ -10,6 +10,39 @@ font-noto {
   font-family: "Noto Sans KR";
 }
 
+
+
+@font-face {
+  font-family: 'built-titling';
+  src: url('/built-titling/built titling bd.ttf') format('truetype');
+}
+.built-titling-font {
+  font-family: 'built-titling', Arial, sans-serif;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/font-noto-sans/NotoSansKR-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+.noto-sans-kr {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/font-noto-sans/static/NotoSansKR-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.noto-sans-kr-bold {
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 700; }
+
+
 @layer base {
   :root {
     --radius: 0.5rem;
